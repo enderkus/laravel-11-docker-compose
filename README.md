@@ -21,7 +21,7 @@ Bu proje, Laravel 11 framework'ü kullanılarak Docker üzerinde çalışan bir 
 1. Projeyi klonlayın:
 ```bash
 git clone <repository-url>
-cd laravel-docker-project
+cd laravel-11-docker-compose
 ```
 
 2. Gerekli .env dosyalarını oluşturun:
@@ -66,14 +66,23 @@ docker compose up -d
 docker compose exec app composer install
 ```
 
-7. Laravel migration'ları çalıştırın:
+7. Laravel application key'i oluşturun:
+```bash
+docker compose exec app php artisan key:generate
+```
+
+8. Laravel migration'ları çalıştırın:
 ```bash
 docker compose exec app php artisan migrate
 ```
 
 ## 🌐 Kullanım
 
+### Docker Desktop kullanıcıları için:
 Uygulama http://localhost:8000 adresinde çalışacaktır.
+
+### OrbStack kullanıcıları için:
+Uygulama https://nginx.laravel-11-docker-compose.orb.local/ adresinde çalışacaktır.
 
 Mevcut rotalar:
 - `/`: Ana sayfa
